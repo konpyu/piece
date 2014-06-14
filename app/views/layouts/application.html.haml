@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title Piece
+    = stylesheet_link_tag    "application", media: "all", 'data-turbolinks-track' => true
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container
+      - if login?
+        %p
+          = current_user.nickname
+        = link_to 'ログアウト', logout_path
+      - else
+        = link_to 'Twitterでログイン', '/auth/twitter'
+      - if flash[:notice]
+        .alert.alert-success
+          = flash[:notice]
+      = yield
