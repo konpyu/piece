@@ -1,0 +1,15 @@
+%h1 new
+= form_for(@posts, class: 'form-horizontal', role: 'form') do |f|
+  - if @posts.errors.any?
+    .alert.alert-danger
+      %ul
+        - @posts.errors.full_messages.each do |msg|
+          %li
+            = msg
+
+  .form-group
+    = f.label :body
+    = f.text_field :body, class: 'form-control'
+
+  = f.submit 'posts', class: 'btn btn-default', data: { disable_with: 'posting' }
+

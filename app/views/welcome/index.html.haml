@@ -1,1 +1,11 @@
-%h3 うぇるかむ
+.col-md-12
+  %h2 Mames
+  .list-group
+  - @posts.each do |post|
+    %a.list-group-item
+      %h4.list-group-item-heading
+        = "#{post.body}"
+      %p.list-group-item-text
+        = "#{post.user.nickname} #{post.created_at}"
+        - if login? && current_user.id == post.user.id
+          = link_to '削除', post_path(post), class: 'btn',method: :delete, data: { confirm: 'delete ok?' }

@@ -8,12 +8,17 @@
   %body
     .container
       - if login?
-        %p
-          = current_user.nickname
         = link_to 'ログアウト', logout_path
+        %img(src="#{current_user.image_url}")
+        = link_to '新規作成', new_post_path
       - else
         = link_to 'Twitterでログイン', '/auth/twitter'
+
       - if flash[:notice]
         .alert.alert-success
           = flash[:notice]
+      - if flash[:alert]
+        .alert.alert-danger
+          = flash[:alert]
+
       = yield

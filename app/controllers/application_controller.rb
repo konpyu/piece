@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
     render 'error404', status: 404, formats: [:html]
   end
 
-  def error500
+  def error500(e)
+    logger.error [e, *e.backtrace].join("\n")
     render 'error500', status: 500, formats: [:html]
   end
 
@@ -26,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate
-    return if logged_in?
+    return if login?
     redirect_to root_path, alert: 'ログインしてください'
   end
 
