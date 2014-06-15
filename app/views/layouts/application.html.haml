@@ -9,15 +9,19 @@
     .header-container
       .header
         .current-user
-          %a.eyecatch.eyecatch-small(href="#")
-            %img.mask.circle(src="#{current_user.image_url}" alt="")
+          %a.eyecatch.eyecatch(href="#{new_post_path}")
+            /TODO: きたない
+            %img.mask.circle(src="/assets/plus.png" alt="")
         %h2.logo
-          %a
-            piece
+          = link_to 'piece', root_path
+
+        .account-menu
+          %ul.inline-wrap
+            %li.inline-child
+              %a(href="#{new_post_path}")
+                %img.mask.circle(src="#{current_user.image_url}" alt="")
 
       - if login?
-        = link_to 'ログアウト', logout_path
-        = link_to '新規作成', new_post_path
       - else
         = link_to 'Twitterでログイン', '/auth/twitter'
 

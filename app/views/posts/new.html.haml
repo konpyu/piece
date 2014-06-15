@@ -1,15 +1,22 @@
-%h1 new
-= form_for(@posts, class: 'form-horizontal', role: 'form') do |f|
-  - if @posts.errors.any?
-    .alert.alert-danger
-      %ul
-        - @posts.errors.full_messages.each do |msg|
-          %li
-            = msg
+.container.bg-white.border-shadow
+  .mod-operation-page
+    -#/ Show mode
+    .container-operation(ng-show='!editEmail && !editPassword && !editTokusyo')
+      = form_for(@posts, class: 'space-reset', role: 'form') do |f|
+        .form-stacked.space-bottom-2
+          .clearfix
 
-  .form-group
-    = f.label :body
-    = f.text_field :body, class: 'form-control'
+          .form-group
+            = f.text_area :body, class: 'form-control'
 
-  = f.submit 'posts', class: 'btn btn-default', data: { disable_with: 'posting' }
+          - if @posts.errors.any?
+            .alert.alert-danger
+              %ul
+                - @posts.errors.full_messages.each do |msg|
+                  %li.error-message
+                    = msg
 
+          %br
+          .clearfix
+            %button.btn.btn-medium.btn-high.fl-right submit
+            /= f.submit 'posts', class: 'btn btn-medium fl-right', data: { disable_with: 'posting' }
