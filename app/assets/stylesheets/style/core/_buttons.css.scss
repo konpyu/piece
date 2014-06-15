@@ -1,0 +1,663 @@
+/* =============================================================
+  ボタン関連
+ * ============================================================= */
+
+button {
+  font-family: inherit;
+  font-size: 100%;
+  border: none;
+  padding: 0;
+}
+
+// BASE
+.btn {
+  @include border_radius($radius);
+  text-align: center;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  background: #FFF;
+  border: 1px solid $c-bd-button;
+  color: $c-black;
+  //
+  font-size: $f-size-4;
+  height: 25px;
+  width: 90px;
+  line-height: 25px;
+  &:hover {
+    border: 1px solid $c-grey;
+    color: $c-black;
+    text-decoration: none !important;
+  }
+  &:active {
+  }
+  a{
+    display:block;
+    color: $c-black;
+    &:hover {
+      text-decoration: none !important;
+    }
+  }
+}
+button.btn{
+  line-height: 1 !important;
+}
+
+// STYLE
+.btn-low{
+  color: $c-black;
+  background-color: #ffffff;
+  &:hover {
+    color: $c-black;
+    background-color: #ffffff;
+    text-decoration: none !important;
+  }
+}
+.btn-grey{
+  color: $c-black;
+  background-color: $c-ulgrey;
+  border: 1px solid $c-ulgrey;
+  &:hover {
+    color: $c-black;
+    border: 1px solid $c-bdgrey;
+  }
+}
+.btn-disable{
+  color: $c-grey;
+  background-color: $c-ulgrey;
+  border: 1px solid $c-lgrey;
+  cursor: default;
+  &:hover {
+    color: $c-grey;
+    background-color: $c-ulgrey;
+    border: 1px solid $c-lgrey;
+  }
+}
+.btn-high{
+  border: 1px solid $c-green;
+  background-color: $c-green;
+  color: #ffffff;
+  &:hover {
+    color: #fff;
+    border: 1px solid $c-green;
+    text-decoration: none !important;
+  }
+}
+.btn-t-high{
+  color: $c-green;
+}
+.btn-cakes {
+  color: #FFF;
+  background-color: #feda15;
+  border-color: #feda15;
+  a{
+    color: #FFF;
+  }
+  &:hover {
+    background-color: #feda15;
+    border-color: #feda15;
+    color: #FFF;
+    text-decoration: none !important;
+  }
+  &:active {
+  }
+}
+.btn-black{
+  border: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  &:hover {
+    border: 2px solid #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+}
+
+.btn-facebook {
+  color: #FFF;
+  background-color: $c-facebook;
+  border-color: $c-facebook;
+  a{
+    color: #FFF;
+  }
+  &:hover {
+    border-color: $c-facebook;
+    color: #FFF;
+    text-decoration: none !important;
+  }
+  &:active {
+  }
+}
+
+.btn-twitter {
+  color: #FFF;
+  background-color: $c-twitter;
+  border-color: $c-twitter;
+  a{
+    color: #FFF;
+  }
+  &:hover {
+    border-color: $c-twitter;
+    color: #FFF;
+  }
+  &:active {
+  }
+}
+
+.btn-edit{
+  border: 1px solid #fff;
+  background-color: #fff;
+  color: $c-black;
+  &:hover {
+    border: 1px solid $c-grey;
+  }
+}
+
+.btn-write{
+  border: 1px;
+  border-style: solid;
+  border-color: $c-bdgrey;
+  background-color: $c-ulgrey;
+  &:hover {
+    border-style: slid;
+    border-color: $c-grey;
+  }
+}
+
+.btn-flat{
+  display: block;
+  text-align: center;
+}
+
+
+// GROUP
+.btn-group{
+  @extend .clearfix;
+    .btn{
+      float: left;
+    }
+}
+
+.btn-group-list{
+  .btn:first-child{
+    margin-left: 0px;
+  }
+  .btn{
+    margin-left: 10px;
+  }
+}
+
+// GROUP-BOX
+.btn-group-box{
+  .btn{
+    border-radius: 0 !important;
+    width: 55px;
+    height: 30px;
+    line-height: 30px;
+    &:hover {
+      border: 1px solid $c-bdgrey;
+      background-color: #f8f9fa;
+      -moz-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.03) inset;
+      -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.03) inset;
+    }
+  }
+  .btn-current{
+    color: $c-grey !important;
+  }
+  .btn:first-child:not(:last-child){
+    border-right: none !important;
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+  }
+  .btn:nth-child(2):not(:last-child), .btn:nth-child(3):not(:last-child){
+    border-right: none !important;
+  }
+  .btn:last-child{
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+  }
+}
+
+// SIZE
+// #Size
+.btn-xsmall{
+  width: 68px;
+  height: 25px;
+  line-height: 25px;
+}
+.btn-small{
+  width: 80px;
+  height: 31px;
+  line-height: 31px;
+  @include mq-sp{
+    &.sp{
+      width: 40px !important;
+    }
+  }
+}
+.btn-medium-small{
+  width: 100px;
+  height: 31px;
+  line-height: 31px;
+}
+.btn-medium{
+  width: 110px;
+  height: 31px;
+  line-height: 31px;
+}
+.btn-large{
+  width: 150px;
+  height: 35px;
+  line-height: 35px;
+}
+.btn-xlarge{
+  width: 240px;
+  height: 40px;
+  line-height: 40px;
+}
+.btn-form{
+  width: 160px;
+  height: 30px;
+  line-height: 30px;
+  input{
+    margin-top: -3px;
+    padding: 0 5px !important;
+  }
+}
+.btn-full{
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+}
+.btn-tall{
+  height: 39px;
+  line-height: 39px;
+  font-size: $f-size-5;
+}
+.btn-taller{
+  height: 45px !important;
+  line-height: 45px !important;
+  font-size: $f-size-5;
+}
+.btn-tallest{
+  min-height: 50px;
+  height: auto;
+  line-height: 50px;
+}
+.btn-tallest.is-active{
+  border: 2px solid $c-green;
+}
+//
+.btn-square{
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+.btn-circle{
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  @include border_radius(50%);
+  .icon-reload {
+    background-position: -1px -391px;
+  }
+}
+.btn-more{
+  width: 300px;
+  height: 35px;
+  line-height: 35px;
+}
+
+@media screen and (max-width: 767px) {
+  .btn-small{
+    width: 80px;
+    height: 31px;
+    line-height: 31px;
+  }
+  .btn-medium-small{
+    width: 100px;
+    height: 31px;
+    line-height: 31px;
+  }
+  .btn-medium{
+    width: 100px;
+    height: 31px;
+    line-height: 31px;
+  }
+  .btn-form{
+    width: 150px;
+    height: 31px;
+    line-height: 31px;
+  }
+  .btn-large{
+    width: 160px;
+    height: 31px;
+    line-height: 31px;
+  }
+  .btn-xlarge{
+    width: 240px;
+    height: 35px;
+    line-height: 35px;
+  }
+  .btn-full{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+  }
+  .btn-tall{
+    height: 35px;
+    line-height: 35px;
+    font-size: $f-size-6;
+  }
+  .btn-tallest{
+    min-height: 60px;
+    height: auto;
+    line-height: 60px;
+  }
+  .btn-tallest.is-active{
+    border: 2px solid $c-grey;
+  }
+}
+
+// POINTER
+.pointer{
+  cursor: pointer;
+}
+.drag{
+  cursor: move;
+}
+.cursor-default{
+  cursor: default !important;
+}
+
+.inactive {
+  cursor: default;
+  &:hover {
+    border: 1px solid #d9e0e2;
+  }
+}
+
+// PLUS MARK
+.square{
+  height: 16px;
+  position: absolute;
+  background-color: $c-grey;
+  display: block;
+}
+.squre-posi{
+  top: 50%;
+  left: 30px;
+  margin-top: -8px;
+}
+.square.cross {
+  width: 4px;
+}
+.cross:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  -moz-transform:rotate(90deg);
+  -webkit-transform:rotate(90deg);
+  background-color: $c-grey;
+}
+
+// CURRENT
+.btn-current{
+    background-color: #f8f9fa;
+    &:hover{
+      border-color: $c-bdgrey;
+    }
+}
+
+//SWITCH
+.btn-switch{
+  span.on-off{
+    width: 14px;
+    height: 14px;
+    @include border_radius(100px);
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+  width: 34px;
+  height: 18px;
+  @include border_radius(100px);
+  background-color: $c-grey;
+  display: block;
+  position: relative;
+}
+.btn-switch.is-active{
+  background-color: $c-green;
+  span{
+    left: 18px;
+  }
+}
+
+//TEXT DECORATION
+.no-underline{
+  &:hover{
+    text-decoration: none;
+  }
+  a.no-underline{
+    text-decoration: none;
+  }
+}
+
+//BORDER 2px BTN
+.btn-bd-2{
+  border-width: 2px;
+  &:hover{
+    border-width: 2px;
+  }
+}
+
+//CHECK BTN
+.w-half{
+  width: 50%;
+}
+.btn-check{
+  @include border_radius(4px);
+  background-color: $c-ulgrey;
+  display: block;
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 35px;
+  .icon-small{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    margin-top: -10px;
+  }
+}
+.btn-check.is-active{
+  color: $c-black;
+  .icon-small-check{
+    background-position: -20px -40px;
+  }
+}
+
+//メールアドレスで登録ボタン
+.btn-mail{
+  border-width: 2px;
+  &:hover{
+    border-width: 2px;
+  }
+}
+.btn-mail.is-active{
+  border-color: $c-green;
+  .icon-small-mail{
+    background-position: -20px -200px;
+  }
+}
+
+//テキストノート詳細ページの値段ボタン
+.price-btn{
+  display: block;
+  text-align: center;
+  position: relative;
+  .icon-mini-edit{
+    position: absolute;
+    top: 3px;
+    right: 4px;
+  }
+}
+.charge{
+  border: 1px solid $c-green;
+  background-color: $c-green;
+  color: #ffffff;
+  &:hover {
+    color: #fff;
+    border: 1px solid $c-green;
+    text-decoration: none !important;
+  }
+}
+.free{
+  border: 1px solid $c-grey;
+  background-color: $c-grey;
+  color: #ffffff;
+  &:hover {
+    color: #fff;
+    border: 1px solid $c-grey;
+    text-decoration: none !important;
+  }
+}
+.label-draft{
+  display: block;
+  text-align: center;
+  position: relative;
+  border: 1px solid $c-grey;
+  background-color: $c-grey;
+  color: #ffffff;
+  height: 24px;
+  width: 85px;
+  line-height: 23px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  font-size: 12px;
+}
+.icon-back{
+  width: 30px;
+  height: 30px;
+  display: block;
+  background-color: #ccc;
+  background: image-url("icon_back.png") no-repeat;
+  background-size: 30px 30px;
+  background-position: 0px 0px;
+}
+
+
+//--------------------------------------------------
+// リファクタリング
+//--------------------------------------------------
+.btn{
+  &.btn-on-img{
+    @include button-maker-on-img(null,'low');
+    &.btn-high{
+      @include button-maker-on-img(null,'high');
+    }
+  }
+}
+
+
+.button{
+  @include button-maker(null,'low');
+  &.button-on-img{
+    @include button-maker-on-img(null,'low');
+    &.button-high{
+      @include button-maker-on-img(null,'high');
+    }
+  }
+  &.button-high{
+    @include button-maker(null,'high');
+  }
+}
+.button-xxsmall{
+  @include button-maker(xxs,'low');
+  &.button-on-img{
+    @include button-maker-on-img(xxs,'low');
+    &.button-high{
+      @include button-maker-on-img(xxs,'high');
+    }
+  }
+  &.button-high{
+    @include button-maker(xxs,'high');
+  }
+}
+.button-xsmall{
+  @include button-maker(xs,'low');
+  &.button-on-img{
+    @include button-maker-on-img(xs,'low');
+    &.button-high{
+      @include button-maker-on-img(xs,'high');
+    }
+  }
+  &.button-high{
+    @include button-maker(xs,'high');
+  }
+}
+.button-small{
+  @include button-maker(s,'low');
+  &.button-on-img{
+    @include button-maker-on-img(s,'low');
+    &.button-high{
+      @include button-maker-on-img(s,'high');
+    }
+  }
+  &.button-high{
+    @include button-maker(s,'high');
+  }
+}
+.button-medium{
+  @include button-maker(m,'low');
+  &.button-on-img{
+    @include button-maker-on-img(m,'low');
+    &.button-high{
+      @include button-maker-on-img(m,'high');
+    }
+  }
+  &.button-high{
+    @include button-maker(m,'high');
+  }
+}
+.button-large{
+  @include button-maker(l,'low');
+  &.button-on-img{
+    @include button-maker-on-img(l,'low');
+    &.button-high{
+      @include button-maker-on-img(l,'high');
+    }
+  }
+  &.button-high{
+    @include button-maker(l,'high');
+  }
+}
+.button-xlarge{
+  @include button-maker(xl,'low');
+  &.button-on-img{
+    @include button-maker-on-img(xl,'low');
+    &.button-high{
+      @include button-maker-on-img(xl,'high');
+    }
+  }
+  &.button-high{
+    @include button-maker(xl,'high');
+  }
+}
+.button-xxlarge{
+  @include button-maker(xxl,'low');
+  &.button-on-img{
+    @include button-maker-on-img(xxl,'low');
+    &.button-high{
+      @include button-maker-on-img(xxl,'high');
+    }
+  }
+  &.button-high{
+    @include button-maker(xxl,'high');
+  }
+}

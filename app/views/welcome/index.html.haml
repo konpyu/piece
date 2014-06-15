@@ -1,11 +1,19 @@
-.col-md-12
-  %h2 Mames
-  .list-group
-  - @posts.each do |post|
-    %a.list-group-item
-      %h4.list-group-item-heading
-        = "#{post.body}"
-      %p.list-group-item-text
-        = "#{post.user.nickname} #{post.created_at}"
-        - if login? && current_user.id == post.user.id
-          = link_to '削除', post_path(post), class: 'btn',method: :delete, data: { confirm: 'delete ok?' }
+.timeline
+  .feeds
+    .feed
+      .feed-inner
+        .container
+          - @posts.each do |post|
+            .units-timeline
+              .inner-timeline.unit
+                .mod-mag-info
+                  .inner-mag-info
+                    %p 1
+
+                %p.note-title.txt-bold
+                  %span
+                    = "#{post.body}"
+                %p.txt-xs.txt-grey
+                  = "#{post.user.nickname} #{post.created_at}"
+                  - if login? && current_user.id == post.user.id
+                    = link_to '削除', post_path(post), class: 'btn',method: :delete, data: { confirm: 'delete ok?' }

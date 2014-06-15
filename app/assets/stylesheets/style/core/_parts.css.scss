@@ -1,0 +1,81 @@
+/* =============================================================
+  共通パーツ
+ * ============================================================= */
+
+//--------------------------------------------------
+// EYECATCH
+//--------------------------------------------------
+@mixin eyecatch($size) {
+  width: $size;
+  height: $size;
+}
+
+.eyecatch{
+  display: block;
+  img{
+    width: 100%;
+  }
+  &.eyecatch-full{
+    @include eyecatch(100%);
+  }
+  &.eyecatch-xlarge{
+    @include eyecatch(110px);
+  }
+  &.eyecatch-large{
+    @include eyecatch(70px);
+  }
+  &.eyecatch-medium-large{
+    @include eyecatch(60px);
+  }
+  &.eyecatch-medium{
+    @include eyecatch(40px);
+  }
+  &.eyecatch-small{
+    @include eyecatch(30px);
+  }
+  &.eyecatch-xsmall{
+    @include eyecatch(20px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sp-textnote-profile{
+    width: 100% !important;
+    max-width: 100px;
+    padding-right: 10px;
+  }
+}
+
+// POSITION
+.eyecatch-inline{
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -1px;
+}
+.eyecatch-xsmall-inline{
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+// BORDER
+.bor-right{
+  border-right: 1px solid;
+}
+
+// COLOR
+.c-lgrey{
+  color: $c-lgrey;
+}
+
+// LABEL
+.label{
+  display: inline;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 1.2;
+}
+.unpublished{
+  background-color: $c-ulgrey;
+  color: $c-grey;
+}

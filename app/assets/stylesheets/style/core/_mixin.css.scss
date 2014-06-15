@@ -1,0 +1,319 @@
+/* =============================================================
+  MIXIN関連
+ * ============================================================= */
+
+//--------------------------------------------------
+// Radius
+//--------------------------------------------------
+@mixin border_radius($br_value) {
+  @each $prefix in $set_prefix {
+      #{$prefix}border-radius: $br_value;
+  }
+}
+
+@mixin border_radius_top($br_value) {
+  @each $prefix in $set_prefix {
+      #{$prefix}border-top-left-radius: $br_value;
+      #{$prefix}border-top-right-radius: $br_value;
+  }
+}
+
+@mixin border_radius_bottom($br_value) {
+  @each $prefix in $set_prefix {
+      #{$prefix}border-bottom-left-radius: $br_value;
+      #{$prefix}border-bottom-right-radius: $br_value;
+  }
+}
+
+//--------------------------------------------------
+// POSITION
+//--------------------------------------------------
+@mixin position-set-middle-center($w,$h) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -$h/2;
+    margin-left: -$w/2;
+}
+
+@mixin font-size($size) {
+  @if $size == xxxxl{
+    font-size: 30px;
+  }
+  @if $size == xxxl{
+    font-size: 24px;
+  }
+  @if $size == xxl{
+    font-size: 20px;
+  }
+  @else if $size == xl{
+    font-size: 17px;
+  }
+  @else if $size == l{
+    font-size: 15px;
+  }
+  @else if $size == m{
+    font-size: 13px;
+  }
+  @else if $size == s{
+    font-size: 12px;
+  }
+  @else if $size == xs{
+    font-size: 11px;
+  }
+  @else if $size == xxs{
+    font-size: 10px;
+  }
+}
+
+@mixin inner($sp-top,$sp-right,$sp-bottom,$sp-left) {
+  padding-top: $sp-top + px;
+  padding-right: $sp-right + px;
+  padding-bottom: $sp-bottom + px;
+  padding-left: $sp-left + px;
+}
+
+@mixin space($sp-top,$sp-right,$sp-bottom,$sp-left) {
+  margin-top: $sp-top + px;
+  margin-right: $sp-right + px;
+  margin-bottom: $sp-bottom + px;
+  margin-left: $sp-left + px;
+}
+
+@mixin box-sizing{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+//--------------------------------------------------
+// MEDIA QUERIES
+//--------------------------------------------------
+@mixin mq-retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+// ## Variables
+$mq-all    : null !default;
+$mq-sp     : null !default;
+$mq-tablet : null !default;
+$mq-default: null !default;
+$mq-large  : null !default;
+
+$default-mq-sp-max-width     : 480px !default;
+$default-mq-tablet-min-width : $default-mq-sp-max-width + 1 !default;
+$default-mq-tablet-max-width : 767px !default;
+// $default-mq-tablet-max-width : 800px !default;
+$default-mq-default-min-width: $default-mq-tablet-max-width + 1 !default;
+$default-mq-large-min-width  : 1025px !default;
+$default-mq-default-max-width: null !default;
+// $default-mq-default-max-width: $default-mq-large-min-width - 1 !default;
+
+// ## Wrapper
+@mixin mq {
+    @include mq-all     { @content; }
+    // @include mq-large   { @content; }
+    @include mq-default { @content; }
+    @include mq-tablet  { @content; }
+    @include mq-sp      { @content; }
+}
+
+// ## For All
+@mixin mq-all {
+    $_tmp: $mq-all;
+    $mq-all: true;
+    @content;
+    $mq-all: $_tmp;
+}
+
+// ## For Smartphones
+@mixin mq-sp(
+    $max: $default-mq-sp-max-width
+) {
+    $_tmp: $mq-sp;
+    $mq-sp: true;
+    @media only screen and (max-width:#{$max}) {
+        @content;
+    }
+    $mq-sp: $_tmp;
+}
+
+// ## For Tablets
+@mixin mq-tablet(
+    $min: $default-mq-tablet-min-width,
+    $max: $default-mq-tablet-max-width
+) {
+    $_tmp: $mq-tablet;
+    $mq-tablet: true;
+    @media only screen and (min-width:#{$min}) and (max-width:#{$max}) {
+        @content;
+    }
+    $mq-tablet: $_tmp;
+}
+
+// ## For PC (default)
+@mixin mq-default(
+    $min: $default-mq-default-min-width,
+    $max: $default-mq-default-max-width
+) {
+    $_tmp: $mq-default;
+    $mq-default: true;
+    $_breakpoint: "(min-width:#{$min}) ";
+    @if not($max == null) {
+        $_breakpoint: $_breakpoint + "and (max-width:#{$max}) ";
+    }
+    @media only screen and #{$_breakpoint}{
+        @content;
+    }
+    $mq-default: $_tmp;
+}
+
+// ## For Large Window
+@mixin mq-large(
+    $min: $default-mq-large-min-width
+) {
+    $_tmp: $mq-large;
+    $mq-large: true;
+    @media only screen and (min-width:#{$min}) {
+        @content;
+    }
+    $mq-large: $_tmp;
+}
+
+
+//--------------------------------------------------
+// BUTTON
+//--------------------------------------------------
+@mixin button-maker($size,$status: 'low',$bg: false) {
+  @include border_radius($radius);
+  @include box-sizing;
+  //
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  //
+  font-size: 13px;
+  //
+  @if $size == 'xs' {
+    font-size: 11px;
+    $w: 68px;
+    $h: 25px;
+    width: $w;
+    height: $h;
+    line-height: $h;
+  } @else if $size == 's' {
+    font-size: 12px;
+    $w: 80px;
+    $h: 26px;
+    width: $w;
+    height: $h;
+    line-height: $h - 1px;
+  } @else if $size == 'm' {
+    $w: 140px;
+    $h: 34px;
+    width: $w;
+    height: $h;
+    line-height: $h - 4px;
+  } @else if $size == 'l' {
+    $w: 180px;
+    $h: 34px;
+    width: $w;
+    height: $h;
+    line-height: $h - 2px;
+  } @else if $size == 'xl' {
+    $w: 220px;
+    $h: 38px;
+    width: $w;
+    height: $h;
+    line-height: $h - 2px;
+  } @else if $size == 'xxl' {
+
+  }
+  //
+  @if $status == 'low' {
+    border: 1px solid $c-bd-button;
+    color: $c-black;
+    background-color: #fff;
+    &:hover{
+      border: 1px solid $c-green;
+    }
+    &.button-after{
+      border: 1px solid $c-green;
+      color: $c-green;
+    }
+  } @else if $status == 'high' {
+    border: 1px solid $c-green;
+    background-color: $c-green;
+    color: #fff;
+    &.button-after{
+      border: 1px solid $c-grey;
+      background-color: $c-grey;
+      color: #fff;
+    }
+  }
+  //
+}
+
+@mixin button-maker-on-img($size,$status: 'low',$bg: false) {
+  @include border_radius($radius);
+  @include box-sizing;
+  //
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  //
+  font-size: 13px;
+  //
+  @if $size == 'xs' {
+  } @else if $size == 's' {
+    font-size: 12px;
+    $w: 80px;
+    $h: 30px;
+    width: $w;
+    height: $h;
+    line-height: $h - 3px;
+  } @else if $size == 'm' {
+    $w: 140px;
+    $h: 34px;
+    width: $w;
+    height: $h;
+    line-height: $h - 4px;
+  } @else if $size == 'l' {
+    $w: 180px;
+    $h: 40px;
+    width: $w;
+    height: $h;
+    line-height: $h - 4px;
+  } @else if $size == 'xl' {
+    $w: 220px;
+    $h: 38px;
+    width: $w;
+    height: $h;
+    line-height: $h - 2px;
+  } @else if $size == 'xxl' {
+  }
+  //
+  @if $status == 'low' {
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    &.button-after,&.btn-after{
+      border: 2px solid $c-green;
+      color: $c-green;
+      background-color: #fff;
+    }
+  } @else if $status == 'high' {
+    border: 2px solid $c-green;
+    background-color: $c-green;
+    color: #fff;
+    &.button-after,&.btn-after{
+      border: 2px solid #fff;
+      background-color: $c-grey;
+    }
+  }
+  //
+}

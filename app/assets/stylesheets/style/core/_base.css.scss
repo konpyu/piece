@@ -1,0 +1,28 @@
+body {
+  background-color: #ffffff;
+  color: #222222;
+  line-height: 1.5;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Roboto, 'Droid Sans', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic ProN', sans-serif;
+  word-wrap: break-word;
+}
+
+p, blockquote, dl, dt, dd, ul, ol, li, form {
+  font-size: 12px;
+}
+
+a, a:focus{overflow: hidden; outline: none;}
+a{
+  color: $c-black;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover{
+    color: $c-green;
+  }
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+

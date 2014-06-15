@@ -6,14 +6,14 @@
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .container
-      %nav.navbar.navbar-default(role="navigation")
-        .container-fluid
-          .navbar-center
-            fuga
-          .navbar-right
-            - if login?
-              %img(src="#{current_user.image_url}")
+    .header-container
+      .header
+        .current-user
+          %a.eyecatch.eyecatch-small(href="#")
+            %img.mask.circle(src="#{current_user.image_url}" alt="")
+        %h2.logo
+          %a
+            piece
 
       - if login?
         = link_to 'ログアウト', logout_path

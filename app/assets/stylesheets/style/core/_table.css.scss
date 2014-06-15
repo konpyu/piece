@@ -1,0 +1,116 @@
+/* =============================================================
+  テーブル関連
+ * ============================================================= */
+
+//--------------------------------------------------
+// BASE
+//--------------------------------------------------
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  th,td{
+    vertical-align: middle;
+    padding: 10px 5px;
+    border-top: 1px solid $c-border-lgrey;
+    font-size: $f-size-4;
+  }
+  tr:first-child{
+    th,td{
+      border-top: none;
+    }
+  }
+  tr.border-dot{
+    th,td{
+      border-top: 1px dashed $c-lgrey;
+    }
+  }
+  thead{
+    th,td{
+     background: $c-ulgrey;
+     border-bottom: none;
+     padding:  5px 10px;
+    }
+  }
+}
+
+.table-2col {
+  width: 48%;
+  tbody{
+    width: 100%;
+  }
+  th{
+    border-bottom: 1px solid $c-bdgrey;
+    padding:  5px 0;
+  }
+  td{
+    vertical-align: middle;
+    padding: 5px 0px;
+    font-size: $f-size-5;
+  }
+  td:nth-child(1){
+    width: 60%;
+  }
+  td:nth-child(2), td:nth-child(3){
+    width: 20%;
+    text-align: right;
+  }
+  tr:first-child{
+    td{
+      padding: 15px 0px 5px 0;
+    }
+  }
+}
+
+.table, .table-2col{
+  //
+  .cell-1{
+    width: 10%;
+  }
+  .cell-1h{
+    width: 15%;
+  }
+  .cell-2{
+    width: 20%;
+  }
+  .cell-2h{
+    width: 25%;
+  }
+  .cell-3{
+    width: 30%;
+  }
+  .cell-3h{
+    width: 35%;
+  }
+  .cell-4{
+    width: 40%;
+  }
+  .cell-5{
+    width: 50%;
+  }
+  .cell-6{
+    width: 60%;
+  }
+  .cell-7{
+    width: 70%;
+  }
+  .cell-8{
+    width: 80%;
+  }
+  .cell-9{
+    width: 90%;
+  }
+}
+
+.ph-table{
+  tbody{
+    tr{
+      border-bottom: 1px solid $c-lgrey;
+    }
+  }
+  tbody:last-child{
+    tr{
+      border-bottom: none;
+    }
+  }
+}
