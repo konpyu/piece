@@ -7,9 +7,16 @@
     = csrf_meta_tags
   %body
     .container
+      %nav.navbar.navbar-default(role="navigation")
+        .container-fluid
+          .navbar-center
+            fuga
+          .navbar-right
+            - if login?
+              %img(src="#{current_user.image_url}")
+
       - if login?
         = link_to 'ログアウト', logout_path
-        %img(src="#{current_user.image_url}")
         = link_to '新規作成', new_post_path
       - else
         = link_to 'Twitterでログイン', '/auth/twitter'
