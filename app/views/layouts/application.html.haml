@@ -8,18 +8,20 @@
   %body
     .header-container
       .header
-        .current-user
-          %a.eyecatch.eyecatch(href="#{new_post_path}")
-            /TODO: きたない
-            %img.mask.circle(src="/assets/plus.png" alt="")
+        - if login?
+          .current-user
+            %a.eyecatch.eyecatch(href="#{new_post_path}")
+              /TODO: きたない
+              %img.mask.circle(src="/assets/plus.png" alt="")
         %h2.logo
           = link_to 'piece', root_path
 
-        .account-menu
-          %ul.inline-wrap
-            %li.inline-child
-              %a(href="#{new_post_path}")
-                %img.mask.circle(src="#{current_user.image_url}" alt="")
+        - if login?
+          .account-menu
+            %ul.inline-wrap
+              %li.inline-child
+                %a(href="#{new_post_path}")
+                  %img.mask.circle(src="#{current_user.image_url}" alt="")
 
       - if login?
       - else
