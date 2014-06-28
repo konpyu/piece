@@ -12,9 +12,9 @@
       .header
         - if login?
           .current-user
-            %a.eyecatch.eyecatch(href="#{new_post_path}")
-              /TODO: きたない
-              %img.mask.circle(src="/assets/plus.png" alt="")
+            /%a.eyecatch.eyecatch(href="#{new_post_path}")
+            %h2.plus
+              = link_to 'plus', new_post_path
         %h2.logo
           = link_to 'piece', root_path
 
