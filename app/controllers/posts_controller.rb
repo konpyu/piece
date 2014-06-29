@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @posts = current_user.posts.build(post_params)
+    @posts.number = Post.where(user_id: current_user).maximum(:number) + 1
     if @posts.save
       redirect_to root_path, notice: 'OK'
     else
