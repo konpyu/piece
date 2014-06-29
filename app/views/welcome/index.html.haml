@@ -11,6 +11,8 @@
                   %span
                     = "#{post.body}"
                 %p.txt-xs.txt-grey
-                  = "#{post.number} #{post.user.nickname} #{post.created_at.to_s(:db)}"
+                  %span.sample
+                    = "#{post.number}"
+                  = "#{post.user.nickname} #{post.created_at.to_s(:db)}"
                   - if login? && current_user.id == post.user.id
                     = link_to '削除', post_path(post), class: 'btn',method: :delete, data: { confirm: 'delete ok?' }
