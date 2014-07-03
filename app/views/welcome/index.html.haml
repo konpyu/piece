@@ -9,7 +9,7 @@
 
                 %p.note-title.txt-bold
                   %span
-                    = "#{post.body}"
+                    = auto_link(post.body)
                 %p.txt-xs.txt-grey
                   %span.sample
                     = "#{post.number}"

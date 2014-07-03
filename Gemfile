@@ -26,6 +26,7 @@ gem 'activerecord-import'
 gem 'airbrake'
 gem 'aws-sdk'
 gem 'newrelic_rpm'
+gem 'rails_autolink'
 
 group :production do
   gem 'pg'
